@@ -1,5 +1,5 @@
 clear
-version = 2.3;
+version = 2.4;
 % Load lists
 url = readList('webpage.txt');
 keywords = readList('keywords.txt');
@@ -30,7 +30,7 @@ for m = 2:size(url,1)
     breakfastContent = char(breakfastContent,lineContent);
     lunchContent = char(lunchContent,lineContent);
     dinnerContent = char(dinnerContent,lineContent);
-    webpage=urlread(strtrim(url(m,:)));
+    webpage=webread(strtrim(url(m,:)));
         % Read different time
     exprBreakfast = '<td class="views-field views-field-field-breakfast-menu-value">\s[A-Za-z <>/=-"\s\\]*?</td>';
     exprLunch = '<td class="views-field views-field-field-lunch-menu-value">\s[A-Za-z <>/=-"\s\\]*?</td>';
@@ -132,4 +132,4 @@ for i = 2:size(subscripters,1)
     sendmail(strtrim(subscripters(i,:)),mailTitle,mailSent)
 end
 
-exit;
+%exit;
